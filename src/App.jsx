@@ -14,10 +14,10 @@ Sentry.init({
   replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
 });
 
-class ValidationError extends Error {
+class NewValidationError extends Error {
   constructor(message) {
     super(message); // (1)
-    this.name = "ValidationError"; // (2)
+    this.name = "NewValidationError"; // (2)
   }
 }
 
@@ -26,7 +26,7 @@ function App() {
 
   const handleClick = () => {
     setCount((count) => count + 1)
-    throw new ValidationError('This is the error message')
+    throw new NewValidationError('This is the new error message')
   };
 
   return (
